@@ -9,6 +9,9 @@ set(MY_INCLUDE_DIR
 )
 set(MY_SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 
+add_subdirectory(test_search_engine)
+target_link_libraries(test_search_engine PRIVATE gtest_main)
+
 include(FetchContent)
 
 FetchContent_Declare(
@@ -18,7 +21,5 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(nlohmann_json)
 
 include_directories(${nlohmann_json_SOURCE_DIR})
-
-
 
 add_subdirectory(src)
